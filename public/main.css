@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#root {
+  padding: 0.5em;
+  width: 100%;
+  max-width: 30rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.input {
+  height: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid black;
+}
+
+.input input {
+  width: 100%;
+  font-size: 1.2em;
+  -webkit-padding-start: 0.5em;
+          padding-inline-start: 0.5em;
+  border: none;
+}
+
+.input input:focus {
+  outline: none;
+  border: none;
+}
+
+.input button {
+  border: none;
+  background-color: #8cf88c;
+  height: 100%;
+  width: 10em;
+  border-left: 1px solid black;
+  margin-left: auto;
+}
+
+.todo {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0.5em;
+  height: 2rem;
+}
+
+.todo .todo_buttons {
+  margin-left: auto;
+  width: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid black;
+}
+
+.todo .todo_buttons button {
+  height: 50%;
+  border: none;
+  width: 100%;
+}
+
+.todo .todo_buttons button:focus {
+  outline: none;
+  border: none;
+}
+
+.todo .todo_buttons .todo_buttons_edit {
+  background-color: #f8f18c;
+}
+
+.todo .todo_buttons .todo_buttons_delete {
+  background-color: #f88c8c;
+}
+
+.todo .todo_desc {
+  width: 100%;
+  font-size: 0.7em;
+  -webkit-transition: 1s;
+  transition: 1s;
+  resize: none;
+  background-color: white;
+  outline: none;
+  border: 1px solid black;
+  padding: 0.3em;
+  -webkit-padding-start: 0.5em;
+          padding-inline-start: 0.5em;
+  border-right: none;
+  color: black;
+}
+
+.todo .todo_desc:disabled {
+  color: #494949;
+  font-size: 0.65em;
+}
+
+.todo .todo_desc:focus {
+  outline: none;
+  border: 1px solid black;
+  border-right: none;
+}
+/*# sourceMappingURL=main.css.map */

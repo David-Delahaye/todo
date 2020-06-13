@@ -21,15 +21,15 @@ const InputTodo = () => {
 
   return (
     <Fragment>
-      <h1> Input Todo</h1>
-      <form onSubmit = {onSubmitForm}>
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button>Add</button>
-      </form>
+        <form className="input" onSubmit = {onSubmitForm}>
+          <input
+            type="text"
+            placeholder="Add a Todo"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <button>Add</button>
+        </form>
     </Fragment>
   );
 };

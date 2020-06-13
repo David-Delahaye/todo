@@ -33,24 +33,11 @@ const ListTodos = () => {
     console.log(todos);
     
     return (
-        <table>
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {todos.map(todo => (
-              <tr key={todo.todo_id}>
-                <td>{todo.description}</td>
-                <td><EditTodo todo = {todo}/></td>
-                <td><button onClick={()=> deleteTodo(todo.todo_id)}>Delete</button></td>
-              </tr>
-          ))}
-        </tbody>
-      </table>
+          todos.map(todo => (
+              <div key={todo.todo_id} className="todo" id={`id${todo.todo_id}`}>
+                  <EditTodo todo = {todo}/>
+              </div>
+          ))
         )
 }
 
