@@ -4,13 +4,13 @@ const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description);
 
   
-  const deleteTodo = async (id) => {
+  const deleteTodo = async (id,e) => {
+    e.target.parentNode.parentNode.classList.add('fade')
     try {
         const deleteTodo = await fetch(`https://quiet-journey-55394.herokuapp.com/api/todos/${id}`,{
             method:"DELETE"
         });
 
-        window.location = "/"
     } catch (err) {
         console.error(err.message);
     }
@@ -23,6 +23,7 @@ const EditTodo = ({ todo }) => {
       e.target.innerHTML = "Confirm";
       if (e.target.parentNode.previousSibling.disabled){
         try {
+           e.target.innerHTML = "Edit";
             const body = {description};
             const response = await fetch (`https://quiet-journey-55394.herokuapp.com/api/todos/${todo.todo_id}`,{
                 method: "PUT",
@@ -30,7 +31,6 @@ const EditTodo = ({ todo }) => {
                 body: JSON.stringify(body)
             })
 
-            window.location = ('/')
         } catch (err) {
             console.error(err.message);
         }
@@ -48,12 +48,12 @@ const EditTodo = ({ todo }) => {
       <div className="todo_buttons">
         <button
             className="todo_buttons_edit"
-            onClick={e => updateDescription(e)}>
+            onClick={(e) => updateDescription(e)}>
             Edit
         </button>
         <button 
           className="todo_buttons_delete"
-          onClick={()=> deleteTodo(todo.todo_id)}>
+          onClick={(e)=> deleteTodo(todo.todo_id,e)}>
           Delete</button>
         </div>
     </Fragment>

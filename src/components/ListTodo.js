@@ -15,18 +15,6 @@ const ListTodos = () => {
         }
     }
 
-    const deleteTodo = async (id) => {
-        try {
-            const deleteTodo = await fetch(`https://quiet-journey-55394.herokuapp.com/api/todos/${id}`,{
-                method:"DELETE"
-            });
-
-            setTodos(todos.filter(todo => todo.todo_id !== id));
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
-
     useEffect(() => {
         getTodos();
     }, []);
