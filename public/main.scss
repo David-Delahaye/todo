@@ -38,6 +38,7 @@
 }
 
 .todo{
+    transform-origin: top;
     width: 100%;
     display: flex;
     margin-top:0.5em;
@@ -66,6 +67,7 @@
         }
     }
     .todo_desc{
+        transition: 1s;
         width: 100%;
         font-size: 0.7em;
         transition: 1s;
@@ -90,9 +92,32 @@
 }
 
 .fade{
-    opacity: 0 !important;
-    height: 0px !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    font-size: 0px !important;
+    animation: fadeOut 0.3s forwards;
+}
+
+.fadeIn{
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from{
+        transform:scaleY(1);
+        opacity: 1;
+    }
+    to{
+        transform:scaleY(0);
+        opacity: 0;
+        margin-bottom: -3.5rem;
+    }
 }

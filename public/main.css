@@ -44,6 +44,8 @@
 }
 
 .todo {
+  -webkit-transform-origin: top;
+          transform-origin: top;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -87,9 +89,10 @@
 }
 
 .todo .todo_desc {
+  -webkit-transition: 1s;
+  transition: 1s;
   width: 100%;
   font-size: 0.7em;
-  -webkit-transition: 1s;
   transition: 1s;
   resize: none;
   background-color: white;
@@ -115,10 +118,66 @@
 }
 
 .fade {
-  opacity: 0 !important;
-  height: 0px !important;
-  margin: 0px !important;
-  padding: 0px !important;
-  font-size: 0px !important;
+  -webkit-animation: fadeOut 0.3s forwards;
+          animation: fadeOut 0.3s forwards;
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 0.3s;
+          animation: fadeIn 0.3s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    opacity: 0;
+    margin-bottom: -3.5rem;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    opacity: 0;
+    margin-bottom: -3.5rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
