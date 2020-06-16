@@ -4,13 +4,14 @@ import Todo from "./Todo";
 class Todos extends Component {
     constructor(){
         super();
-        this.getTodos();
         this.state = {
             todos:[],
             currentInput:"",
         }
     }
-
+    componentDidMount(){
+        this.getTodos();
+    }
 
     getTodos = async () => {
         try {
@@ -25,23 +26,20 @@ class Todos extends Component {
     onSubmitForm = async (e) => {
         e.preventDefault();
         try {
-            console.log(this.state.currentInput);
             const body = {"description":this.state.currentInput};
             const response = await fetch("https://quiet-journey-55394.herokuapp.com/api/todos",{
               method: "POST",
               headers: { "Content-Type" : "application/json"},
               body: JSON.stringify(body)
             });
-            console.log(response);
         } catch (err) {
             console.error(err.message)
         }
-
+        this.setState({currentInput:''})
         await this.getTodos();
         const last = this.state.todos.length-1;
         const query = '#id' + last;
         const todo = document.querySelector(query);
-        console.log(todo);
         
         setTimeout(()=>{
             todo.classList.remove('fadeIn')
@@ -50,6 +48,7 @@ class Todos extends Component {
     }
 
     deleteTodo = async (e,i) => {
+        console.log(i);
         setTimeout(async() => {
         const id = e.todo_id
         try {
@@ -60,7 +59,9 @@ class Todos extends Component {
         } catch (err) {
             console.error(err.message);
         }
-        await this.getTodos();
+        const newTodos = this.state.todos.slice();
+        newTodos.splice(i,1);
+        this.setState({todos:newTodos});
         }, 100)
         const query = '#id' + i;
         const todo = document.querySelector(query);
@@ -80,10 +81,10 @@ class Todos extends Component {
         const editBtn = todo.childNodes[1].childNodes[0];
         const text = todo.childNodes[0];
         text.disabled = !text.disabled;
-        editBtn.innerHTML = "Confirm";
+        editBtn.innerHTML = '<img src="./assets/confirm.svg"/>';
         if (text.disabled){
           try {
-             editBtn.innerHTML = "Edit"; 
+             editBtn.innerHTML = '<img src="./assets/edit.svg"/>'; 
               const body = {"description":e.description};
               const response = await fetch (`https://quiet-journey-55394.herokuapp.com/api/todos/${e.todo_id}`,{
                   method: "PUT",
@@ -101,7 +102,7 @@ class Todos extends Component {
         this.setState({currentInput:e})
     }
 
-    render(){  
+    render(){
         let todosFormat = this.state.todos.map ((e,i) => {
             return(
             <Todo  todo={e} key={i} at ={i} delete={() => this.deleteTodo(e,i)} edit = {(e) => this.editTodo(e,i)}update = {() => this.updateTodo(e,i)}/>

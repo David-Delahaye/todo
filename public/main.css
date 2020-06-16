@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,11 +6,29 @@
           box-sizing: border-box;
 }
 
+body {
+  background-color: whitesmoke;
+}
+
 #root {
-  padding: 0.5em;
   width: 100%;
   max-width: 30rem;
   margin: auto;
+  padding: 0.5em;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .input {
@@ -18,32 +37,56 @@
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1em;
-  border: 1px solid black;
 }
 
 .input input {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   width: 100%;
   font-size: 1.2em;
   -webkit-padding-start: 0.5em;
           padding-inline-start: 0.5em;
   border: none;
+  font-family: "Varela Round", sans-serif;
 }
 
 .input input:focus {
+  background-color: #e6efe6;
   outline: none;
   border: none;
 }
 
 .input button {
+  font-family: "Varela Round", sans-serif;
   border: none;
-  background-color: #a9daa9;
+  color: white;
+  background-color: #548354;
   height: 100%;
   width: 10rem;
-  border-left: 1px solid black;
   margin-left: auto;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.input button:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.input button:focus {
+  border: none;
+  outline: none;
+}
+
+.input button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.377);
+          box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.377);
 }
 
 .todo {
+  position: relative;
   -webkit-transform-origin: top;
           transform-origin: top;
   width: 100%;
@@ -51,28 +94,33 @@
   display: -ms-flexbox;
   display: flex;
   margin-top: 0.5em;
-  height: 3rem;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.329);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.329);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
 .todo .todo_buttons {
-  margin-left: auto;
-  width: 5rem;
+  position: absolute;
+  right: 0.8rem;
+  width: 3.5rem;
+  bottom: 0.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border: 1px solid black;
 }
 
 .todo .todo_buttons button {
-  height: 50%;
+  height: 20px;
+  width: 20px;
   border: none;
-  width: 100%;
+  background-color: white;
 }
 
 .todo .todo_buttons button:focus {
@@ -80,28 +128,20 @@
   border: none;
 }
 
-.todo .todo_buttons .todo_buttons_edit {
-  background-color: #f4f1c2;
-}
-
-.todo .todo_buttons .todo_buttons_delete {
-  background-color: #f4c2c2;
-}
-
 .todo .todo_desc {
+  font-family: 'Varela Round', sans-serif;
+  border: none;
+  height: 5em;
   -webkit-transition: 1s;
   transition: 1s;
   width: 100%;
-  font-size: 0.7em;
-  transition: 1s;
+  font-size: 0.9em;
   resize: none;
   background-color: white;
   outline: none;
-  border: 1px solid black;
   padding: 0.3em;
   -webkit-padding-start: 1em;
           padding-inline-start: 1em;
-  border-right: none;
   color: black;
 }
 
@@ -113,8 +153,6 @@
 
 .todo .todo_desc:focus {
   outline: none;
-  border: 1px solid black;
-  border-right: none;
 }
 
 .fade {
@@ -163,7 +201,7 @@
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
     opacity: 0;
-    margin-bottom: -3.5rem;
+    margin-bottom: -5rem;
   }
 }
 
@@ -177,7 +215,7 @@
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
     opacity: 0;
-    margin-bottom: -3.5rem;
+    margin-bottom: -5rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

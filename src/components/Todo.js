@@ -16,17 +16,19 @@ class Todo extends Component {
                   onChange={(e) => {this.props.edit(e)}}
                 />
               <div className="todo_buttons">
+                
                 <button
                     className="todo_buttons_edit"
                     onClick={this.props.update}
                     >
-                    Edit
+                    <img src="./assets/edit.svg"/>
                 </button>
                 <button 
                     className="todo_buttons_delete"
                     onClick={this.props.delete}
                   >
-                  Delete</button>
+                  <img src="./assets/delete.svg"/>
+                </button>
                 </div>
                 </div>
     )

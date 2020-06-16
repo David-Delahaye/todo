@@ -1,14 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+$font :'Varela Round', sans-serif;
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(245, 245, 245);
+}
+
 #root{
-    padding:0.5em;
     width:100%;
     max-width: 30rem;
     margin:auto;
+    padding:0.5em;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 
@@ -16,68 +36,82 @@
     height: 4em;
     display: flex;
     margin-bottom: 1em;
-    border: 1px solid rgb(0, 0, 0);
     input{
+        transition:0.2s;
         width: 100%;
         font-size: 1.2em;
         padding-inline-start: 0.5em;
         border: none;
+        font-family: $font;
         &:focus{
+            background-color: hsl(120, 22%, 92%);
             outline: none;
             border: none;
         }
+
     }
     button{
+        font-family: $font;
         border: none;
-        background-color: hsl(120, 40%, 76%);
+        color: white;
+        background-color: hsl(120, 22%, 42%);
         height: 100%;
         width: 10rem;
-        border-left: 1px solid black;
         margin-left: auto;
+        transition: 0.5s;
+        &:hover{
+            transform: scale(1.03);
+        }
+        &:focus{
+            border: none;
+            outline: none;
+        }
+        &:active{
+            transform: scale(0.95);
+            box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.377);
+        }
     }
 }
 
 .todo{
+    position: relative;
     transform-origin: top;
     width: 100%;
     display: flex;
     margin-top:0.5em;
-    height: 3rem;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.329);
+    height: fit-content;
     transition: 1s;
     .todo_buttons{
-        margin-left: auto;
-        width: 5rem;
+        position: absolute;
+        right: 0.8rem;
+        width: 3.5rem;
+        bottom: 0.5rem;
+        justify-content: space-between;
         display: flex;
-        flex-direction: column;
-        border: 1px solid black;
         button{
-            height: 50%;
+            height: 20px;
+            width: 20px;
             border: none;
-            width: 100%;
+            background-color: white;
             &:focus{
                 outline: none;
                 border: none;
             }
-        }
-        .todo_buttons_edit{
-            background-color: hsl(56, 70%, 86%);;
-        }
-        .todo_buttons_delete{
-            background-color: hsl(0, 70%, 86%);;
-        }
+        }   
     }
     .todo_desc{
+        font-family: 'Varela Round', sans-serif;
+        border: none;
+        height: 5em;
         transition: 1s;
         width: 100%;
-        font-size: 0.7em;
-        transition: 1s;
+        font-size: 0.9em;
         resize: none;
         background-color: white;
         outline: none;
-        border: 1px solid black;
         padding: 0.3em;
         padding-inline-start: 1em;
-        border-right: none;
         color: black;
         &:disabled{
             color: rgb(90, 90, 90);
@@ -85,8 +119,6 @@
         }
         &:focus{
             outline: none;
-            border: 1px solid black;
-            border-right: none;
         }
     }
 }
@@ -118,6 +150,6 @@
     to{
         transform:scaleY(0);
         opacity: 0;
-        margin-bottom: -3.5rem;
+        margin-bottom: -5rem;
     }
 }
